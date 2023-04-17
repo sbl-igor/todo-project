@@ -1,0 +1,45 @@
+@mixin position-func($position, $top, $left, $bottom, $right) {
+    position: $position;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+}
+
+@mixin flex-template($flex, $direction, $content, $content2) {
+    display: $flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $content2;
+}
+
+.modal {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    @include position-func(fixed, 0, 0, none, none);
+    @include flex-template(flex, column, center, center);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    &.active {
+        pointer-events: all;
+        opacity: 1;
+    }
+    .modalContent {
+        padding: 20px;
+        border-radius: 12px;
+        background-color: white;
+        width: 40vw;
+        transform: scale(0.5);
+        transition: 0.4s all;
+        @include flex-template(flex, column, space-around, center);
+        &.active {
+            transform: scale(1);
+        }
+    }
+}
+
+
+

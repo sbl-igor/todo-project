@@ -1,0 +1,31 @@
+$backgroundColor: linear-gradient(90deg, #121212,#333333,#525252);
+
+@mixin flex-template($flex, $direction, $content) {
+    display: $flex;
+    flex-direction: $direction;
+    justify-content: $content;
+}
+
+@mixin text-options($text-align, $color, $size) {
+    text-align: $text-align;
+    color: $color;
+    font-size: $size;
+}
+
+.footer {
+    background: $backgroundColor;
+    height: 100px;
+    width: 100%;
+    @include flex-template(flex, column, center);
+    @media (max-width: 600px) {
+        @include flex-template(flex, column, center);
+        align-items: center;
+        height: 60px;
+    }
+    div {
+        @include text-options(center, white, 25px);
+        @media (max-width: 600px) {
+            @include text-options(center, white, 14px);
+        }
+    }
+}

@@ -1,0 +1,131 @@
+@mixin flex-template($flex, $direction, $content) {
+    display: $flex;
+    flex-direction: $direction;
+    justify-content: $content;
+}
+
+@mixin position-func($position, $top, $left, $bottom, $right) {
+    position: $position;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+}
+
+// $backgroundGrey: grey;
+// $backgroundGainsboro: gainsboro;
+// $backgroundIvory: ivory;
+// $backgroundSilver: silver;
+// $backgroundOldLace: oldlace;
+
+main{ 
+    .buttons {
+        @include flex-template(flex, row, flex-end);
+        margin: 5px; 
+        button {
+            background-color: rgb(125, 125, 125);
+            font-size: 18px;
+            border-radius: 3px;
+            margin: 0 5px;
+        }   
+    }
+    .addNoteBtn {
+        background-color: grey;
+        font-size: 40px;
+        @include position-func(absolute, 200px, 50%, none, none);
+        transform: translateX(-50%);
+        padding: 5px 20px;
+        border: 3px solid black;
+        border-radius: 10px;
+        @media (max-width: 600px) {
+            font-size: 16px;
+        }
+    }
+    .h3Modal {
+        text-align: center;
+        margin-top: 10px;
+    }
+    #textarea {
+        width: 90%; /* Ширина поля в процентах */
+        height: 200px; /* Высота поля в пикселях */
+        resize: none; 
+        font-size: 22px
+    }
+    .cardsField {
+        @include flex-template(flex, column, flex-start);
+        align-items: flex-start;
+        flex-wrap: wrap;
+        min-height: 70vh;
+        max-height: 90vh;
+        overflow-x: auto;
+        padding: 40px;
+        @media (max-width: 600px) {
+            align-items: center;
+            margin: 20px 0;
+            max-height: 60vh; 
+            flex-wrap: nowrap;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        &::-webkit-scrollbar {
+            width: 25px;
+            @media (max-width: 600px) {
+                width: 5px;
+            }
+        }
+        &::-webkit-scrollbar-track {
+            background: rgb(112, 112, 112);        /* цвет зоны отслеживания */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(38, 38, 39);    /* цвет бегунка */
+            border-radius: 20px;       /* округлось бегунка */
+            border: 3px solid rgb(1, 1, 1);  /* отступ вокруг бегунка */
+        }
+        .card {
+            background-color: gainsboro;
+            width: 40%;
+            margin: 20px;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            @media (max-width: 600px) {
+                margin: 10px;
+                width: 80%;
+            }
+            .buttons {
+                @include flex-template(flex, row, flex-end);
+                margin: 5px;
+            }
+            button {
+                background-color: rgb(125, 125, 125);
+                font-size: 18px;
+                border-radius: 3px;
+                margin: 0 5px;
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                }
+            }
+            #textForCard {
+                margin: 10px;
+                font-size: 20px;
+                word-wrap: break-word;
+            }
+        .tags {
+            align-items: flex-start;
+            margin: 10px 0;
+            width: 90%;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            .boxTag {
+                display: inline-block;
+                padding: 3px;
+                background-color: darkgray;
+                margin: 5px;
+            }
+        }
+        }
+    }
+}
