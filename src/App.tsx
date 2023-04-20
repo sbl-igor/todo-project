@@ -43,12 +43,12 @@ function App() {
   }
   
   useEffect(() => {
+    localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage));
+  }, [textTextArea, dataOnPage]);
+  useEffect(() => {
     // @ts-ignore
     setDataOnPage(JSON.parse(localStorage.getItem('dataOnPage')));
   }, []);
-  useEffect(() => {
-    localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage));
-  }, [textTextArea, dataOnPage]);
 
   // split(' ').map(el => {
   //   if (tags !== null) {
