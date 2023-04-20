@@ -1,21 +1,10 @@
-Тестовое задание Front-end.
+Test task Front-end.
 
-Разработать одностраничное приложение на React: текстовый редактор заметок с тегами.
-Действия:
-1. Создание, редактирование, просмотр и удаление заметок;
-2. Фильтр заметок по тегу;
-3. Добавление и удаление тегов из списка.
-4. Данные хранить в json формате.
-5. Использование CSS препроцессора.
-6. Использование TypeScript
-7. Залить на гит
-8. Залить на netlify
-
-Примечания:
-Во время редактирования заметки пользователь может создавать теги, используя символ #.
-Например: пользователь вводит текст “I wanna go to #shop”. По мере (окончании) ввода должен создаться соответствующий тег и отобразиться в списке под текстовым полем.
-При редактировании заметки все слова, соответствующие тегам, должны подсвечиваться.
-
-// - - - - -
+![screenshot-sbl-igor github io-2023 04 20-16_22_39](https://user-images.githubusercontent.com/80469915/233276477-713480b3-42d7-4d9f-83ae-6f1add32aebd.png)
 
 
+Develop a single page application in React: a text editor with tags.
+
+Notes:
+While editing a note, the user can create tags using the # symbol.
+For example: the user enters the text “I wanna go to #shop”. As you (end) the input, the corresponding tag should be created and displayed in the list below the text field.
