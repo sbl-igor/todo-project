@@ -13,12 +13,18 @@ function App() {
   const [modalActiveEdit, setModalActiveEdit] = useState(false);
 
   const [textTextArea, setTextTextArea] = useState(''); // state для textarea
-  const storage: null | string = localStorage.getItem('dataOnPage');
-  const [dataOnPage, setDataOnPage] = useState(storage && JSON.parse(storage) || []); // массив из наших заметок, видны на странице
+  // @ts-ignore
+  const storage = localStorage.getItem('dataOnPage');
+  // @ts-ignore
+  const [dataOnPage, setDataOnPage] = useState(JSON.parse(localStorage.getItem('dataOnPage')) || []); // массив из наших заметок, видны на странице
+  // const [dataForLocalStr, setDataForLocalStr] = useState([])
   // - - -
   const [editNum, setEditNum] = useState(0); // стейт, хранящий номер элемента массива  
   // - - -
   const [tags, setTags] = useState([]);
+  // localStorage.clear()
+  // const [dataForTags, setDataForTags] = useState([])
+  // console.log('dataOnPage', dataOnPage)
   
   // function for removing card on page
   const removeDiv = (key: number) => {
@@ -37,11 +43,21 @@ function App() {
   }
   
   useEffect(() => {
-    setDataOnPage(storage && JSON.parse(storage));
+    // @ts-ignore
+    setDataOnPage(JSON.parse(localStorage.getItem('dataOnPage')));
   }, []);
   useEffect(() => {
     localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage));
   }, [textTextArea, dataOnPage]);
+
+  // split(' ').map(el => {
+  //   if (tags !== null) {
+  //     tags.map(tag => {
+  //       return el === tag ? el = `<i>${el}</i>` : el
+  //     })
+  //   } 
+  //   return el
+  // }).join(' ')}
 
   return (    
     <main>      
