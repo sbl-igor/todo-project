@@ -16,7 +16,7 @@ function App() {
   // @ts-ignore
   // const storage = localStorage.getItem('dataOnPage');
   // @ts-ignore
-  const [dataOnPage, setDataOnPage] = useState(JSON.parse(localStorage.getItem('dataOnPage')) || []); // массив из наших заметок, видны на странице
+  const [dataOnPage, setDataOnPage] = useState(JSON.parse(sessionStorage.getItem('dataOnPage')) || []); // массив из наших заметок, видны на странице
   // const [dataForLocalStr, setDataForLocalStr] = useState([])
   // - - -
   const [editNum, setEditNum] = useState(0); // стейт, хранящий номер элемента массива  
@@ -44,10 +44,10 @@ function App() {
   
   useEffect(() => {
     // @ts-ignore
-    setDataOnPage(JSON.parse(localStorage.getItem('dataOnPage') || []));
+    setDataOnPage(JSON.parse(sessionStorage.getItem('dataOnPage') || []));
   }, []);
   useEffect(() => {
-    localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage || []));
+    sessionStorage.setItem('dataOnPage', JSON.stringify(dataOnPage || []));
   }, [textTextArea, dataOnPage]);
 
   // split(' ').map(el => {
