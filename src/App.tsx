@@ -14,7 +14,7 @@ function App() {
 
   const [textTextArea, setTextTextArea] = useState(''); // state для textarea
   // @ts-ignore
-  const storage = localStorage.getItem('dataOnPage');
+  // const storage = localStorage.getItem('dataOnPage');
   // @ts-ignore
   const [dataOnPage, setDataOnPage] = useState(JSON.parse(localStorage.getItem('dataOnPage')) || []); // массив из наших заметок, видны на странице
   // const [dataForLocalStr, setDataForLocalStr] = useState([])
