@@ -44,10 +44,10 @@ function App() {
   
   useEffect(() => {
     // @ts-ignore
-    setDataOnPage(JSON.parse(localStorage.getItem('dataOnPage')));
+    setDataOnPage(JSON.parse(localStorage.getItem('dataOnPage') || []));
   }, []);
   useEffect(() => {
-    localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage));
+    localStorage.setItem('dataOnPage', JSON.stringify(dataOnPage || []));
   }, [textTextArea, dataOnPage]);
 
   // split(' ').map(el => {
